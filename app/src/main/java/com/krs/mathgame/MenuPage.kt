@@ -26,6 +26,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
+/**
+ * MenuPage is the main menu screen of the math game.
+ * It provides buttons for navigating to different categories of math games.
+ *
+ * @param navController The NavController used to navigate between screens.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MenuPage(navController: NavController) {
@@ -59,6 +65,7 @@ fun MenuPage(navController: NavController) {
             )
             {
 
+                // Button for navigating to Addition game
                 Button(
                     onClick = {
                         navController.navigate("SecondPage/add")
@@ -80,6 +87,7 @@ fun MenuPage(navController: NavController) {
 
                 }
 
+                // Button for navigating to Subtraction game
                 Button(
                     onClick = {
                         navController.navigate("SecondPage/sub")
@@ -101,6 +109,7 @@ fun MenuPage(navController: NavController) {
 
                 }
 
+                // Button for navigating to Multiplication game
                 Button(
                     onClick = {
                         navController.navigate("SecondPage/multi")
@@ -122,6 +131,7 @@ fun MenuPage(navController: NavController) {
 
                 }
 
+                // Button for navigating to Division game
                 Button(
                     onClick = {
                         navController.navigate("SecondPage/div")

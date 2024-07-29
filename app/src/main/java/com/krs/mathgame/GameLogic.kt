@@ -2,6 +2,12 @@ package com.krs.mathgame
 
 import kotlin.random.Random
 
+/**
+ * Generates a math question based on the selected category.
+ *
+ * @param selectedCategory The category of math operations (addition, subtraction, multiplication, division).
+ * @return An ArrayList containing the question as a String and the correct answer as an Int.
+ */
 fun generateQuestion(selectedCategory: String) : ArrayList<Any>{
 
     var number1 = Random.nextInt(0, 100)
@@ -34,7 +40,7 @@ fun generateQuestion(selectedCategory: String) : ArrayList<Any>{
             correctAnswer = number1 * number2
         }
 
-        else -> {
+        else -> { // "div" category
 
             if (number1 == 0 || number2 == 0) {
                 textQuestion = "0 / 1"

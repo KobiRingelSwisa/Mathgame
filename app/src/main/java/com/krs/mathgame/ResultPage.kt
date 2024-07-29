@@ -29,6 +29,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
+/**
+ * ResultPage is the screen that displays the user's score at the end of the game.
+ * It provides options to play again or exit the game.
+ *
+ * @param navController The NavController used to navigate between screens.
+ * @param score The user's score from the game.
+ */
 @Composable
 fun ResultPage(navController: NavController, score: Int) {
 
@@ -48,6 +55,8 @@ fun ResultPage(navController: NavController, score: Int) {
     ) {
 
         Spacer(modifier = Modifier.height(50.dp))
+
+        // Display congratulatory message
         Text(
             text = "Congratulations",
             fontSize = 24.sp,
@@ -55,20 +64,23 @@ fun ResultPage(navController: NavController, score: Int) {
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(30.dp))
+
+        // Display the user's score
         Text(text = "Your Score: $score", fontSize = 24.sp, color = Color.Red)
 
         Spacer(modifier = Modifier.height(100.dp))
 
+        // Buttons for playing again or exiting the game
         Row(
             modifier = Modifier.fillMaxWidth(), 
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically)
         {
 
+            // Button to play the game again
             Button(
                 onClick = {
-
-                          navController.popBackStack(route = "FirstPage", inclusive = false)
+                    navController.popBackStack(route = "MenuPage", inclusive = false)
                 },
                 modifier = Modifier.size(150.dp, 60.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),
@@ -81,12 +93,10 @@ fun ResultPage(navController: NavController, score: Int) {
                 
             }
 
+            // Button to exit the game
             Button(
                 onClick = {
-
-                          myContext.finish()
-
-
+                    myContext.finish()
                 },
                 modifier = Modifier.size(150.dp, 60.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),

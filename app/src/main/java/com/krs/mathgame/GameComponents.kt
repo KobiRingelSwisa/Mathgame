@@ -24,6 +24,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/**
+ * TextForQuestion displays the current question in the game.
+ *
+ * @param text The question text to be displayed.
+ */
 @Composable
 fun TextForQuestion(text: String) {
 
@@ -40,6 +45,11 @@ fun TextForQuestion(text: String) {
 
 }
 
+/**
+ * TextFieldForAnswer provides an input field for the user to enter their answer.
+ *
+ * @param text The MutableState holding the user's input.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFieldForAnswer(text: MutableState<String>) {
@@ -66,6 +76,13 @@ fun TextFieldForAnswer(text: MutableState<String>) {
 
 }
 
+/**
+ * ButtonOkNext displays a button that can be used to submit an answer or navigate to the next question.
+ *
+ * @param buttonText The text to be displayed on the button.
+ * @param myOnClicked The function to be executed when the button is clicked.
+ * @param isEnabled A boolean indicating whether the button is enabled.
+ */
 @Composable
 fun ButtonOkNext(buttonText : String, myOnClicked:() -> Unit, isEnabled : Boolean) {
     

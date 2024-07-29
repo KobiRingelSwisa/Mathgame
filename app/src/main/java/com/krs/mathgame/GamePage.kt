@@ -38,6 +38,13 @@ import androidx.navigation.NavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import java.util.Locale
 
+/**
+ * GamePage is the screen where the math game is played.
+ * It displays the current question, handles user input, and manages the game state.
+ *
+ * @param navController The NavController used to navigate between screens.
+ * @param category The category of math operations (addition, subtraction, etc.).
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GamePage(navController: NavController, category: String) {
@@ -74,11 +81,7 @@ fun GamePage(navController: NavController, category: String) {
     }
 
 
-
-    //LaunchedEffect -> enter the composition
-    //SideEffect -> each re-composition
-    //DisposableEffect -> leave the composition
-
+    // LaunchedEffect is used to generate a new question when the composition enters
     LaunchedEffect(key1 = "math", block = {
 
         val resultList = generateQuestion(category)
@@ -135,6 +138,7 @@ fun GamePage(navController: NavController, category: String) {
 
                 Spacer(modifier = Modifier.height(20.dp))
 
+                // Display game status
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -152,11 +156,15 @@ fun GamePage(navController: NavController, category: String) {
 
                 Spacer(modifier = Modifier.height(30.dp))
 
+                // Display the question
                 TextForQuestion(text = myQuestion.value)
                 Spacer(modifier = Modifier.height(15.dp))
+
+                // Input field for the answer
                 TextFieldForAnswer(text = myAnswer)
                 Spacer(modifier = Modifier.height(50.dp))
 
+                // Buttons for submitting answer or proceeding to the next question
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,

@@ -16,6 +16,11 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.krs.mathgame.ui.theme.MathGameTheme
 
+
+/**
+ * MainActivity is the entry point of the application.
+ * It sets up the initial UI using Jetpack Compose and handles navigation between different screens.
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,17 +31,20 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyNavigation()
+                    MyNavigation() // Sets up the navigation for the app
                 }
             }
         }
     }
 }
 
+/**
+ * MyNavigation sets up the navigation host and defines the navigation graph for the app.
+ */
 @Composable
 fun MyNavigation() {
 
-    val navController = rememberNavController()
+    val navController = rememberNavController() // Creates a NavController for navigation
 
     NavHost(navController = navController, startDestination = "MenuPage") {
         composable(
